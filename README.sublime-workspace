@@ -1,0 +1,452 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"comment",
+				"comment_id"
+			],
+			[
+				"co",
+				"comment"
+			],
+			[
+				"for",
+				"form"
+			],
+			[
+				"p",
+				"p	Tag"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"ca",
+				"cancel"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"del",
+				"delete"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"a",
+				"action"
+			],
+			[
+				"comm",
+				"comment_updated"
+			],
+			[
+				"n",
+				"notice"
+			],
+			[
+				"su",
+				"subscribers"
+			],
+			[
+				"id",
+				"id"
+			],
+			[
+				"ds",
+				"destroy"
+			],
+			[
+				"S",
+				"subscription"
+			],
+			[
+				"sub",
+				"subscribed_post"
+			],
+			[
+				"п",
+				"публикации"
+			],
+			[
+				"un",
+				"unpublish"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"se",
+				"set_user"
+			],
+			[
+				"cla",
+				"cla	class .. < ParentClass .. initialize .. end"
+			],
+			[
+				"post",
+				"post"
+			],
+			[
+				"Ca",
+				"Category"
+			],
+			[
+				"t",
+				"tt	Tag"
+			],
+			[
+				"fl",
+				"flash	flash[…]"
+			],
+			[
+				"na",
+				"namespace"
+			],
+			[
+				"up",
+				"update"
+			],
+			[
+				"st",
+				"strong	Tag"
+			],
+			[
+				"email",
+				"email"
+			],
+			[
+				"li",
+				"li	Tag"
+			],
+			[
+				"lin",
+				"link_to"
+			],
+			[
+				"action_",
+				"action_mailer"
+			],
+			[
+				"cat",
+				"cat"
+			],
+			[
+				"e",
+				"end	end (ERB)"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"bo",
+				"border-bottom"
+			],
+			[
+				"fo",
+				"form	Tag"
+			],
+			[
+				"th",
+				"th	Tag"
+			],
+			[
+				"the",
+				"thead	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 248.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/andrey/ror/Site/app/views/welcome/Comments.lern",
+		"/home/andrey/ror/Site/app/views/admin/comments/_form.html.erb",
+		"/home/andrey/ror/Site/app/views/admin/posts/show.html.erb",
+		"/home/andrey/ror/Site/app/views/admin/comments/_comment.html.erb",
+		"/home/andrey/ror/Site/app/controllers/admin/comments_controller.rb",
+		"/home/andrey/ror/Site/app/views/admin/comments/edit.html.erb",
+		"/home/andrey/ror/Site/app/assets/javascripts/comments.js",
+		"/home/andrey/ror/Site/app/views/admin/posts/_form.html.erb",
+		"/home/andrey/ror/Site/app/views/admin/posts/index.html.erb",
+		"/home/andrey/ror/Site/app/assets/javascripts/categories.js",
+		"/home/andrey/ror/Site/app/assets/javascripts/posts.js",
+		"/home/andrey/ror/Site/app/controllers/admin/posts_controller.rb",
+		"/home/andrey/ror/Site/app/views/admin/categories/index.html.erb",
+		"/home/andrey/ror/Site/app/assets/javascripts/application.js",
+		"/home/andrey/ror/Site/Gemfile",
+		"/home/andrey/ror/Site/app/views/admin/categories/edit.html.erb",
+		"/home/andrey/ror/Site/app/views/admin/categories/_form.html.erb",
+		"/home/andrey/ror/Site/app/views/admin/categories/new.html.erb",
+		"/home/andrey/ror/Site/app/assets/stylesheets/category.css",
+		"/home/andrey/ror/Site/app/views/posts/published.html.erb",
+		"/home/andrey/ror/Site/app/views/comments/show.html.erb",
+		"/home/andrey/ror/Site/app/views/comments/_comment.html.erb",
+		"/home/andrey/ror/Site/app/views/posts/show.html.erb",
+		"/home/andrey/ror/Site/app/views/admin/categories/show.html.erb",
+		"/home/andrey/ror/Site/app/controllers/posts_controller.rb",
+		"/home/andrey/ror/Site/app/views/posts/unpublished.html.erb",
+		"/home/andrey/ror/Site/app/views/posts/edit.html.erb",
+		"/home/andrey/ror/Site/app/helpers/application_helper.rb",
+		"/home/andrey/ror/Site/app/views/categories/show.html.erb",
+		"/home/andrey/ror/Site/app/views/comments/_form.html.erb",
+		"/home/andrey/ror/Site/app/views/posts/_form.html.erb",
+		"/home/andrey/ror/Site/config/initializers/devise.rb",
+		"/home/andrey/ror/Site/app/mailers/application_mailer.rb",
+		"/home/andrey/ror/Site/config/environments/production.rb",
+		"/home/andrey/ror/Site/config/database.yml",
+		"/home/andrey/ror/Site/.gitignore",
+		"/home/andrey/ror/Site/config/locales/activerecord.ru.yml",
+		"/home/andrey/ror/Site/config/locales/ru.yml",
+		"/home/andrey/ror/Site/config/routes.rb",
+		"/home/andrey/ror/Site/app/views/welcome/Comments",
+		"/home/andrey/ror/Site/app/views/comments/new.html.erb",
+		"/home/andrey/ror/Site/app/views/comments/edit.html.erb",
+		"/home/andrey/ror/Site/app/controllers/comments_controller.rb",
+		"/home/andrey/ror/Site/app/models/comment.rb",
+		"/home/andrey/ror/Site/app/models/user.rb",
+		"/home/andrey/ror/Site/app/views/posts/_index.html.erb",
+		"/home/andrey/ror/Site/app/views/welcome/Пояснения",
+		"/home/andrey/ror/Site/app/views/welcome/index.html.erb",
+		"/home/andrey/ror/Site/app/controllers/categories_controller.rb",
+		"/home/andrey/ror/Site/config/application.rb",
+		"/home/andrey/ror/Site/app/views/welcome/Пояснения к welcome",
+		"/home/andrey/ror/Site/app/controllers/admin/users_controller.rb",
+		"/home/andrey/ror/Site/app/controllers/admin/categories_controller.rb",
+		"/home/andrey/ror/Site/config/locales/_activerecord.ru.ryml",
+		"/home/andrey/ror/Site/app/views/posts/new.html.erb",
+		"/home/andrey/ror/Site/config/locales/devise.ru.yml",
+		"/home/andrey/ror/Site/app/controllers/subscriptions_controller.rb",
+		"/home/andrey/ror/Site/app/models/subscription.rb",
+		"/home/andrey/ror/Site/app/views/layouts/application.html.erb",
+		"/home/andrey/ror/Site/app/models/post.rb",
+		"/home/andrey/ror/Site/db/migrate/20151126151819_create_subscriptions.rb",
+		"/home/andrey/ror/Site/app/views/posts/index.html.erb",
+		"/home/andrey/ror/Site/app/views/notification_mailer/comment_notification.html.erb",
+		"/home/andrey/ror/Site/app/mailers/notification_mailer.rb",
+		"/home/andrey/ror/Site/db/migrate/20151124171459_add_published_to_posts.rb",
+		"/home/andrey/ror/Site/app/views/admin/users/index.html.erb",
+		"/home/andrey/ror/Site/app/controllers/admin/base_controller.rb",
+		"/home/andrey/ror/Site/app/views/layouts/admin.html.erb",
+		"/home/andrey/ror/Site/app/controllers/admin/comments_controller",
+		"/home/andrey/ror/Site/app/views/admin/posts/edit.html.erb",
+		"/home/andrey/ror/Site/app/views/admin/admin.html.erb",
+		"/home/andrey/ror/Site/app/controllers/admin/admins_controller.rb",
+		"/home/andrey/ror/Site/app/views/admin/index.html.erb",
+		"/home/andrey/ror/Site/app/controllers/admins_controller.rb",
+		"/home/andrey/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/andrey/ror/Site/app/models/categories_post.rb",
+		"/home/andrey/ror/Site/db/migrate/20151121105441_add_admin_to_users.rb",
+		"/home/andrey/ror/Site/db/migrate/20151119132559_add_devise_to_users.rb",
+		"/home/andrey/ror/Site/db/schema.rb",
+		"/home/andrey/ror/Site/db/migrate/20151105094703_add_user_id_to_posts.rb",
+		"/home/andrey/ror/Site/db/migrate/20151119163621_add_user_id_to_comments.rb",
+		"/home/andrey/ror/Site/config/environments/development.rb",
+		"/home/andrey/ror/Site/app/views/common/_errors.html.erb",
+		"/home/andrey/ror/Site/app/views/categories/_form.html.erb",
+		"/home/andrey/ror/Site/app/views/categories/index.html.erb",
+		"/home/andrey/ror/Site/app/controllers/application_controller.rb",
+		"/home/andrey/ror/Site/app/views/categories/_category.html.erb",
+		"/home/andrey/ror/Site/app/views/welcome/_delim.html.erb",
+		"/home/andrey/ror/Site/app/views/categories/_delim.html.erb",
+		"/home/andrey/ror/Site/app/controllers/welcome_controller.rb",
+		"/home/andrey/ror/Site/site",
+		"/home/andrey/ror/Test/app/views/pages/home.html.erb",
+		"/home/andrey/ror/Test/config/routes.rb",
+		"/home/andrey/ror/Test/app/controllers/pages_controller.rb",
+		"/home/andrey/ror/Site/app/controllers/pages_controller.rb",
+		"/home/andrey/ror/Site/app/views/pages/home.html.erb",
+		"/home/andrey/ruby/home_task_ruby/exercises_10/site.html",
+		"/home/andrey/ruby/home_task_ruby/exercises_10/main.css",
+		"/home/andrey/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/andrey/.config/sublime-text-3/Packages/User/Plain text.sublime-settings",
+		"/home/andrey/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"%>\n",
+			"#так как данный файл лежит в папке Admin"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "README.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
