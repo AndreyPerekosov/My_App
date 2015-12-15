@@ -21,7 +21,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'device'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -38,7 +38,7 @@ group :development, :test do
 
   #библиотека для написания тестов на BDD
   gem 'rspec-rails', '~> 3.0'
-  gem 'kapybara' уточнить!
+  gem 'capybara' #библиотека для удобного написания acceptance тестов 
 end
 
 group :development do
@@ -55,5 +55,5 @@ group :test do
   gem 'shoulda-matchers', '~> 3.0'
   #библиотека для более удобного написания тетовых данных
   gem 'factory_girl_rails'
-  gem 'launchy' #автозапуск страницы
+  gem 'launchy' #библиотека генерации и показа страницы для более удобного дебагинга acceptance тестов
 end
