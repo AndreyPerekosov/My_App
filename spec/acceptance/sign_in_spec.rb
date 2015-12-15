@@ -12,11 +12,12 @@ feature 'Signing in', %q{
       visit new_user_session_path #хэлпер библиотеки Device
       fill_in 'Email', with: 'user@test.com'
       fill_in 'Password', with: '12345678'
-      #save_and_open_page - команда позволяет посмотреть страницу
+      #save_and_open_page #- команда позволяет посмотреть страницу
       click_on 'Log in'
       #проверки
       expect(page).to have_content 'Signed in successfully'
       expect(page).to have_link 'Log out'
+
     end
     scenario 'Non-existing user tries sign in' do
       visit new_user_session_path #хэлпер библиотеки Device
@@ -26,6 +27,7 @@ feature 'Signing in', %q{
       click_on 'Log in'
 
       expect(page).to have_content 'Invalid email or password' #текст ищется по всей странице
-      expect(page).to have_link 'Log out'
+      save_and_open_page
+      expect(page).to_not have_link 'Log out'
     end
 end
