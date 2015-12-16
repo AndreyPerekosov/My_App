@@ -7,11 +7,11 @@ feature 'Signing in', %q{
   } do
     #given!(:user) {FactoryGirl.create (:user)} #аналог let. given! означает, что user будет создан еще до первого вызова и нам не нужно писать специально user
     given!(:user) {create (:user)} # можно так записать, т.к. включили в rails_helper config.include FactoryGirl::Syntax::Methods
-    scenario 'Exit user tries to sign in' do
+    scenario 'Existing user tries to sign in' do
       #готовим данные
       #User.create(email: 'user@test.com', password: '12345678') вместо этой записи, здесь также с помощью FactoryGirl генерим пользователя
 
-      visit new_user_session_path #хэлпер библиотеки Device
+      visit new_user_session_path #хэлпер библиотеки Device переходим на страницу аунтетификации
       fill_in 'Email', with: user.email
       fill_in 'Password', with: '12345678'
       #save_and_open_page #- команда позволяет посмотреть страницу

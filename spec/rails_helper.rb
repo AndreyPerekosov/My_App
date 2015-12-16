@@ -20,7 +20,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f } #указываем доступ к папке support где складируем вспомогательные модули
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -55,6 +55,9 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryGirl::Syntax::Methods #избавляемся от префикса FactoryGirl
+  config.include Devise::TestHelpers, type: :controller # включаем метод sign_in для контроллеров
+  config.include ControllerHelpers, type: :controller # подключаем наш хелпер для контроллеров
+  config.include AcceptanceHelpers, type: :feature # подключаем наш хелпер для acceptance тестов
 
   # конфигурируем rspec
   Shoulda::Matchers.configure do |config|
