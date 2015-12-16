@@ -3,7 +3,8 @@ FactoryGirl.define do
     "answer_#{n}"
   end
   factory :answer do
-    body 
+    body
+    user 
   end
   factory :invalid_answer, class: 'Answer' do
     body nil
