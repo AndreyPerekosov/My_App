@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  sequence :email do |n| #делаем парочку пользователей
+  sequence :email do |n| #каждый раз вызов метода user увеличивает номер n => уникальные пользователей
     "user_#{n}@test.com"
   end
   factory :user do
