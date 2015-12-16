@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-
+  before_action :authenticate_user!
   def new
     @answer = Answer.new
   end
@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to @question
+      redirect_to @question, notice: 'Your answer successfully created'
     else
       render :new
     end
