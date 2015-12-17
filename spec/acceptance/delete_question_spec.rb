@@ -8,24 +8,31 @@ I want to be able to delete a question
   
   given!(:user) {create (:user)}
   given!(:question) {create (:question)}
+  
   scenario 'Non-author of question tries to delete the question' do
     login(user)
-    click_on 'Delete question'
 
     #check  
-    expect(page).to have_content 'Only author can delete question!' 
+    expect(page).to_not have_content 'Delete question' 
 
   end
 
-   scenario 'Author of question deletes the question' do 
+  scenario 'Author of question deletes the question' do 
     login(question.user)
     click_on 'Delete question'
 
     #check  
     expect(page).to have_content 'Your question delete!'
-   end 
-    
-  
+    expect(page).to_not have_content question.title
+    expect(page).to_not have_content question.body
+  end
 
+  scenario 'Non-authenticated user tries to delete the question' do 
+    visit questions_path
+
+    #check  
+    expect(page).to_not have_content 'Delete question' 
+
+   end     
 
 end

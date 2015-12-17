@@ -4,7 +4,11 @@
   <p>
     <%= question.title %>
     <%= question.body %>
-    <%= link_to 'Delete question', question, method: :delete  %>
+    <% if user_signed_in? %>
+      <% if current_user.owner_of?(question) %>
+        <%= link_to 'Delete question', question, method: :delete  %>
+      <% end %>
+    <% end %>
   </p>
 <% end %>
 
