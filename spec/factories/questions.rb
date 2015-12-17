@@ -5,6 +5,7 @@ FactoryGirl.define do
   factory :question do
     title 
     body 'question body'
+    user
   end
   factory :invalid_question, class: 'Question' do #создаем невалидный объект
     title nil
@@ -14,6 +15,7 @@ FactoryGirl.define do
   factory :question_with_answers, class: 'Question' do 
     title
     body 'question body'
+    user
     transient do
       answers_count 3
     end

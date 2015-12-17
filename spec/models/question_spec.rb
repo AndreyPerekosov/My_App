@@ -10,4 +10,5 @@ RSpec.describe Question, type: :model do
   it { should validate_length_of(:title).is_at_most(200) } #описание в данном случае добавляет библиотека добавляет автоматически 
   it { should have_many (:answers) }
   it {should validate_uniqueness_of (:title) }
+  it { should belong_to(:user) }
 end

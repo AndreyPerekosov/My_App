@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20151215132532) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -47,11 +47,11 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "GET #edit" do
     before do
-      login(user) 
+      login(question.user) 
       get :edit, id: question
     end
 
-    it 'assigns new question' do
+    it 'assigns edit question' do
       expect(assigns(:question)).to eq question
     end
 
@@ -65,7 +65,7 @@ RSpec.describe QuestionsController, type: :controller do
     context 'valid' do
       it 'saves new question in DB' do
         expect { post :create,
-                      question: FactoryGirl.attributes_for(:question) }.to change(Question, :count).by(1)
+                      question: FactoryGirl.attributes_for(:question) }.to change(user.questions, :count).by(1)
       end
 
       it 'redirects to show' do
@@ -90,7 +90,7 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe "PATCH #update" do
-    before{ login(user) }
+    before{ login(question.user) }
     context 'valid' do
       before { patch :update, id: question, question: { title: 'new title', body: 'new body' } }
       it 'changes question' do
@@ -122,7 +122,7 @@ RSpec.describe QuestionsController, type: :controller do
   describe "DELETE #destroy" do
     before do
       question
-      login(user)
+      login(question.user)
     end
 
     it 'deletes question from DB' do
