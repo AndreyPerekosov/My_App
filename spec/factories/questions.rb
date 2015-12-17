@@ -19,5 +19,5 @@ FactoryGirl.define do
     transient do
       answers_count 3
     end
-  end 
+  end
 end

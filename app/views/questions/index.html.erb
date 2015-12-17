@@ -4,10 +4,8 @@
   <p>
     <%= question.title %>
     <%= question.body %>
-    <% if user_signed_in? %>
-      <% if current_user.owner_of?(question) %>
-        <%= link_to 'Delete question', question, method: :delete  %>
-      <% end %>
+    <% if current_user && current_user.owner_of?(question) %>
+      <%= link_to 'Delete question', question, method: :delete  %>
     <% end %>
   </p>
 <% end %>

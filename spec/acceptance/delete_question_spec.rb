@@ -8,6 +8,7 @@ I want to be able to delete a question
   
   given!(:user) {create (:user)}
   given!(:question) {create (:question)}
+  #можно еще так given(:question) {create(:question, user: user)}
   
   scenario 'Non-author of question tries to delete the question' do
     login(user)
