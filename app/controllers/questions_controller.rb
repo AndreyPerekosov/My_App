@@ -52,7 +52,7 @@ class QuestionsController < ApplicationController
 
   def validate_user
     unless current_user.owner_of?(@question)
-      redirect_to questions_path, notice: 'Only author can delete question!'
+      redirect_to questions_path, notice: 'You are not author of question!'
     end
   end
 

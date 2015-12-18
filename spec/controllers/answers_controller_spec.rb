@@ -17,7 +17,7 @@ RSpec.describe AnswersController, type: :controller do
     end
   end
 
- describe "POST #create" do
+  describe "POST #create" do
     before { login(user) }
     context 'valid' do
       it 'saves new answer in DB' do
@@ -44,5 +44,35 @@ RSpec.describe AnswersController, type: :controller do
     end
   end
 
+  describe "DELETE #destroy" do
+    let! (:answer) { create(:answer) }
+    context do 'Author'
+      before do 
+        login(answer.user)
+      end
+      it 'deletes question from DB if ' do
+        expect { delete :destroy, id: answer }.to change(Answer, :count).by(-1)
+      end
+
+      it 'redirects to question show' do
+        delete :destroy, id: answer
+        expect(response).to redirect_to question_path
+      end
+    end
+
+    context do 'Non-author'
+      before do
+        login(user)
+      end
+      it 'Does not delete answer from DB if ' do
+        expect { delete :destroy, id: answer }.to_not change(Answer, :count)
+      end
+
+      it 'redirects to question show' do
+        delete :destroy, id: answer
+        expect(response).to redirect_to question_path
+      end 
+    end
+    end
 
 end

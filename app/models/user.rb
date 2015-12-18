@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
    def owner_of?(object)
     id == object.user_id

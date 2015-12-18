@@ -3,10 +3,6 @@
 
 <h3>Answers</h3>
 
-<% @question.answers.each do |answer| %>
-
-  <%= render answer %>  
-
-<% end %>
+<%= render @question.answers %>
 
 <p><%= link_to 'Answer the question', new_question_answer_path(@question) %></p>

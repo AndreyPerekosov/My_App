@@ -4,6 +4,7 @@ RSpec.describe User do #type: :model можно не писать т.к. в rail
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
   it {should have_many (:questions) }
+  it {should have_many (:answers) }
 
   #check instance method of User model
     describe do

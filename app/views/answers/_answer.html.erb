@@ -1,1 +1,4 @@
 <p><%= answer.body %></p>
+<% if current_user && current_user.owner_of?(answer) %>
+  <%= link_to 'Delete answer', answer, method: :delete  %>
+<% end %>
