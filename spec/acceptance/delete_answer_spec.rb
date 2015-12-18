@@ -18,9 +18,10 @@ feature 'Delete answer', %q{
   end
 
   scenario 'Not the author tries to delete answer' do
-  login(user)
+    login(user)
+    visit question_path(answer.question)
 
-  expect(page).to_not have_content 'Delete question' 
+    expect(page).to_not have_content 'Delete answer' 
   end 
 
   scenario 'Non-authenticated user tries to delete answer' do 

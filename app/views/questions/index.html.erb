@@ -6,6 +6,7 @@
     <%= question.body %>
     <% if current_user && current_user.owner_of?(question) %>
       <%= link_to 'Delete question', question, method: :delete  %>
+      <%= link_to 'Edit question', edit_question_path(question)  %>
     <% end %>
   </p>
 <% end %>
