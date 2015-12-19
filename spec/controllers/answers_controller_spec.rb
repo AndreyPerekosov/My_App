@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe AnswersController, type: :controller do
   let (:question) {FactoryGirl.create(:question)}
   let (:user) { create(:user) }
+  let! (:answer) { create(:answer) }
 
   describe "GET #new" do
     before do
@@ -45,7 +46,6 @@ RSpec.describe AnswersController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    let! (:answer) { create(:answer) }
     context do 'Author'
       before do 
         login(answer.user)
@@ -73,6 +73,73 @@ RSpec.describe AnswersController, type: :controller do
         expect(response).to redirect_to question_path
       end 
     end
+  end
+
+  describe 'GET #edit' do
+    context  do 'Author'
+      before do
+        login(answer.user)
+        get :edit, id: answer
+      end
+      it 'assigns edit answer' do
+        expect(assigns(:answer)).to eq answer    
+      end
+      it 'renders edit template' do
+        expect(response).to render_template :edit    
+      end
     end
+
+    context do 'Non-author'
+      it 'redirects to question show' do
+        login(user)
+        get :edit, id: answer
+        expect(response).to redirect_to question_path(answer.question)   
+      end
+    end
+  end
+
+  describe 'PATCH #update' do 
+    context 'Author' do
+      before do
+        login(answer.user)
+        patch :update, id: answer, answer:{ body: 'new body' } 
+      end
+      it 'changes an answer' do
+        answer.reload
+        expect(answer.body).to eq 'new body'   
+      end
+      it 'redirects to question show' do
+        expect(response).to redirect_to question_path(answer.question) 
+      end
+    end
+
+    context 'Non-author' do
+      before do
+        login(user)
+        patch :update, id: answer, answer:{ body: 'new body' } 
+      end
+      it 'does not change an answer' do
+        answer.reload
+        expect(answer.body).to_not eq 'new body'   
+      end
+      it 'redirects to question show' do
+        expect(response).to redirect_to question_path(answer.question) 
+      end
+    end
+
+    context 'invalid answer' do
+      before do
+        login(answer.user)
+        patch :update, id: answer, answer:{ body: nil } 
+      end
+      it 'does not change an answer' do
+        answer.reload
+        expect(answer.body).to_not eq ''   
+      end
+      it 'renders edit template' do
+        expect(response).to render_template :edit
+      end
+    end
+  end
 
 end

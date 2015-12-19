@@ -90,9 +90,10 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe "PATCH #update" do
-    before{ login(question.user) }
-    context 'valid' do
-      before { patch :update, id: question, question: { title: 'new title', body: 'new body' } }
+    context 'Author' do
+      before do login(question.user) 
+        patch :update, id: question, question: { title: 'new title', body: 'new body' }
+      end
       it 'changes question' do
         question.reload
         expect(question.title).to eq 'new title'
@@ -104,17 +105,37 @@ RSpec.describe QuestionsController, type: :controller do
       end
     end
 
-    context 'invalid' do
-      before { patch :update, id: question, question: { title: nil, body: nil } }
+    context 'Author & invalid question' do
+      before do 
+        login(question.user)
+        patch :update, id: question, question: { title: nil, body: nil }
+      end
 
       it 'does not change question' do
         question.reload
-        expect(question.title).to eq question.title
-        expect(question.body).to eq "question body"
+        expect(question.title).to_not eq nil
+        expect(question.body).to_not eq nil
       end
 
       it 'renders edit template' do
         expect(response).to render_template :edit
+      end
+    end
+    
+     context 'Non-author' do
+      before do 
+        login(user)
+        patch :update, id: question, question: { title: 'new title', body: 'new body' }
+      end
+
+      it 'does not change question' do
+        question.reload
+        expect(question.title).to_not eq 'new title'
+        expect(question.body).to_not eq 'new body'
+      end
+
+      it 'redirects to questions_path' do
+        expect(response).to redirect_to questions_path
       end
     end
   end

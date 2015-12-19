@@ -16,6 +16,7 @@ feature 'Edit question', %q{
     fill_in 'Text', with: 'text, text'
     click_on 'Edit'
 
+    expect(page).to have_content 'Your question successfully updated'
     expect(page).to have_content 'Test question'
     expect(page).to have_content 'text, text'
   
