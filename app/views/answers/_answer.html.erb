@@ -1,5 +1,7 @@
-<p><%= answer.body %></p>
-<% if current_user && current_user.owner_of?(answer) %>
-  <%= link_to 'Delete answer', answer, method: :delete %>
-  <%= link_to 'Edit answer', edit_answer_path(answer) %>
+<%= div_for answer do %>
+  <p><%= answer.body %></p>
+  <% if current_user && current_user.owner_of?(answer) %>
+    <%= link_to 'Delete answer', answer, remote: true, method: :delete %>
+    <%= link_to 'Edit answer', edit_answer_path(answer) %>
+  <% end %>
 <% end %>

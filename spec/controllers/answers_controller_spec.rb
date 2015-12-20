@@ -13,35 +13,35 @@ RSpec.describe AnswersController, type: :controller do
     it 'assigns new Answer' do
       expect(assigns(:answer)).to be_a_new(Answer)
     end
-    it 'renders new template' do
-      expect(response).to render_template :new
-    end
+    # it 'renders new template' do
+    #   expect(response).to render_template :new
+    # end
   end
 
   describe "POST #create" do
     before { login(user) }
     context 'valid' do
       it 'saves new answer in DB' do
-        expect { post :create, question_id: question,
+        # add format: :js for rspec test, becouse we render responce in js (ajax)
+        expect { post :create, question_id: question, format: :js,
                       answer: FactoryGirl.attributes_for(:answer) }.to change(question.answers, :count).by(1)
       end
-
-      it 'redirects to question show' do
-        post :create, question_id: question, answer: FactoryGirl.attributes_for(:answer)
-        expect(response).to redirect_to question
+      
+      it 'renders js template create' do
+        post :create, question_id: question, format: :js, answer: FactoryGirl.attributes_for(:answer)
+        expect(response).to render_template :create #render template js
       end
     end
 
     context 'invalid' do
       it 'does not save new answer in DB' do
-        expect { post :create, question_id: question,
+        expect { post :create, question_id: question, format: :js,
                       answer: FactoryGirl.attributes_for(:invalid_answer) }.to_not change(Answer, :count)
       end
-
-      it 'renders new template' do
-        post :create, question_id: question, answer: FactoryGirl.attributes_for(:invalid_answer)
-        expect(response).to render_template :new
-      end
+      it 'renders js template create' do
+        post :create, question_id: question, format: :js, answer: FactoryGirl.attributes_for(:invalid_answer)
+        expect(response).to render_template :create #render template js
+      end 
     end
   end
 
@@ -51,12 +51,12 @@ RSpec.describe AnswersController, type: :controller do
         login(answer.user)
       end
       it 'deletes question from DB if ' do
-        expect { delete :destroy, id: answer }.to change(Answer, :count).by(-1)
+        expect { delete :destroy, id: answer, format: :js }.to change(Answer, :count).by(-1)
       end
-
-      it 'redirects to question show' do
-        delete :destroy, id: answer
-        expect(response).to redirect_to question_path
+      
+      it 'renders js template destroy' do
+        delete :destroy, id: answer, format: :js
+        expect(response).to render_template :destroy #render template js
       end
     end
 
@@ -69,7 +69,7 @@ RSpec.describe AnswersController, type: :controller do
       end
 
       it 'redirects to question show' do
-        delete :destroy, id: answer
+        delete :destroy, id: answer 
         expect(response).to redirect_to question_path
       end 
     end

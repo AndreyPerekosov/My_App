@@ -2,7 +2,14 @@
 <h1><%= @question.body %></h1>
 
 <h3>Answers</h3>
-
-<%= render @question.answers %>
-
-<p><%= link_to 'Answer the question', new_question_answer_path(@question) %></p>
+<div class="answers">
+  <%= render @question.answers %>
+</div>
+<% if current_user %>
+  <h1>New answer</h1>
+  <%= form_for [@question, Answer.new], remote: true do |f|%> 
+    <%= f.label :body, 'Answer' %>
+    <%= f.text_field :body %>
+    <%= f.submit 'Create' %>
+  <% end %>
+<% end %>

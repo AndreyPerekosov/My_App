@@ -1,0 +1,4 @@
+//$('.answers').append('<%= j render @answer %>');
+$('.answers').append('<%= j render @answer %>');
+$('.answers').append('<p><%= flash.now[:notice] = 'Your answer successfully created' %></p>');
+$('#answer_body').val('');

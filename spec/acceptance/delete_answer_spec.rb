@@ -7,7 +7,7 @@ feature 'Delete answer', %q{
 } do
   given(:user) {create(:user)}
   given(:answer) {create(:answer)}
-  scenario 'Author of answer delete one' do
+  scenario 'Author of answer delete one', js: true do
     login(answer.user)
     visit question_path(answer.question)
     click_on 'Delete answer'

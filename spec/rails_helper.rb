@@ -33,7 +33,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false #настройка тестов js переключаем в false - тесты будут накапливаться, но ставим data_cleaner
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -58,6 +58,26 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller # включаем метод sign_in для контроллеров
   config.include ControllerHelpers, type: :controller # подключаем наш хелпер для контроллеров
   config.include AcceptanceHelpers, type: :feature # подключаем наш хелпер для acceptance тестов
+  #настройка data_cleaner (suite - это файл)
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation) #очистка базы перед каждым тестом  
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction #для обычных тестов стратегия с транзакциями 
+  end
+
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation #для ajax тестов стратегия c cохранением в базе данных
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start #запуск database_cleaner 
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean #очистка после каждного теста
+  end
 
   # конфигурируем rspec
   Shoulda::Matchers.configure do |config|

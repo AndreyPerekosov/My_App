@@ -13,11 +13,11 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(answer_params)
     @answer.user = current_user
-    if @answer.save
-      redirect_to @question, notice: 'Your answer successfully created'
-    else
-      render :new
-    end
+    flash.now[:notice] = 'Your answer successfully created'  if @answer.save 
+       #redirect_to @question, 
+    # else
+    #   render :new
+    # end
   end
 
   def update
@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question, notice: 'Your answer delete!'
+    #redirect_to @answer.question, notice: 'Your answer delete!'
   end
 
 
