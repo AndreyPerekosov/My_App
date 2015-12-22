@@ -102,14 +102,14 @@ RSpec.describe AnswersController, type: :controller do
     context 'Author' do
       before do
         login(answer.user)
-        patch :update, id: answer, answer:{ body: 'new body' } 
+        patch :update, id: answer, format: :js, answer:{ body: 'new body' } 
       end
       it 'changes an answer' do
         answer.reload
         expect(answer.body).to eq 'new body'   
       end
-      it 'redirects to question show' do
-        expect(response).to redirect_to question_path(answer.question) 
+      it 'renders js template update' do
+        expect(response).to render_template :update 
       end
     end
 
@@ -130,14 +130,14 @@ RSpec.describe AnswersController, type: :controller do
     context 'invalid answer' do
       before do
         login(answer.user)
-        patch :update, id: answer, answer:{ body: nil } 
+        patch :update, id: answer, format: :js, answer:{ body: nil } 
       end
       it 'does not change an answer' do
         answer.reload
         expect(answer.body).to_not eq ''   
       end
-      it 'renders edit template' do
-        expect(response).to render_template :edit
+      it 'renders js template edit' do
+        expect(response).to render_template :update
       end
     end
   end

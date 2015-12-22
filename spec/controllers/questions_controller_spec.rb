@@ -92,7 +92,7 @@ RSpec.describe QuestionsController, type: :controller do
   describe "PATCH #update" do
     context 'Author' do
       before do login(question.user) 
-        patch :update, id: question, question: { title: 'new title', body: 'new body' }
+        patch :update, id: question, format: :js, question: { title: 'new title', body: 'new body' }
       end
       it 'changes question' do
         question.reload
@@ -100,15 +100,15 @@ RSpec.describe QuestionsController, type: :controller do
         expect(question.body).to eq 'new body'
       end
 
-      it 'redirects to show' do
-        expect(response).to redirect_to question
+      it 'renders js template update' do
+        expect(response).to render_template :update
       end
     end
 
     context 'Author & invalid question' do
       before do 
         login(question.user)
-        patch :update, id: question, question: { title: nil, body: nil }
+        patch :update, id: question, format: :js, question: { title: nil, body: nil }
       end
 
       it 'does not change question' do
@@ -117,8 +117,8 @@ RSpec.describe QuestionsController, type: :controller do
         expect(question.body).to_not eq nil
       end
 
-      it 'renders edit template' do
-        expect(response).to render_template :edit
+      it 'renders js template update' do
+        expect(response).to render_template :update
       end
     end
     
@@ -147,12 +147,12 @@ RSpec.describe QuestionsController, type: :controller do
         login(question.user)
       end
       it 'deletes question from DB if ' do
-        expect { delete :destroy, id: question }.to change(Question, :count).by(-1)
+        expect { delete :destroy, id: question, format: :js }.to change(Question, :count).by(-1)
       end
 
-      it 'redirects to index' do
-        delete :destroy, id: question
-        expect(response).to redirect_to questions_path
+      it 'renders js template destroy' do
+        delete :destroy, id: question, format: :js
+        expect(response).to render_template :destroy
       end
     end
 

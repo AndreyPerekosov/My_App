@@ -1,2 +1,3 @@
+$('.answer-messages').html('');
 $('#answer_' + '<%= @answer.id %>').remove();
-$('.answers').append('<p><%= flash.now[:notice] = "Your answer delete!" %></p>');
+$('.answer-messages').append('<p><%= flash.now[:notice] = "Your answer delete!" %></p>');

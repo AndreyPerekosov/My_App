@@ -7,6 +7,7 @@
 </div>
 <% if current_user %>
   <h1>New answer</h1>
+  <div class="answer-messages"></div>
   <%= form_for [@question, Answer.new], remote: true do |f|%> 
     <%= f.label :body, 'Answer' %>
     <%= f.text_field :body %>

@@ -21,12 +21,11 @@ class AnswersController < ApplicationController
   end
 
   def update
-    @answer.update(answer_params)
-    if @answer.save
-      redirect_to @answer.question, notice: 'Your answer successfully updated'
-    else
-      render :edit
-    end
+    @answer.update(answer_params) if @answer.save
+      #redirect_to @answer.question, notice: 'Your answer successfully updated'
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy

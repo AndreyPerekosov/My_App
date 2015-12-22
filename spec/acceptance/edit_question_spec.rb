@@ -8,7 +8,7 @@ feature 'Edit question', %q{
   given(:user) {create(:user)}
   given(:question) {create(:question)}
 
-  scenario 'Author edits the question' do
+  scenario 'Author edits the question', js: true do
     login(question.user)
 
     click_on 'Edit question'

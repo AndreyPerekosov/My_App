@@ -9,7 +9,7 @@ feature 'Edit answer', %q{
   given(:user){create :user}
   given(:answer){create :answer}
 
-  scenario 'Author edits the answer' do
+  scenario 'Author edits the answer', js: true do
     login(answer.user)
     visit question_path(answer.question)
     click_on 'Edit answer'

@@ -18,7 +18,7 @@ I want to be able to delete a question
 
   end
 
-  scenario 'Author of question deletes the question' do 
+  scenario 'Author of question deletes the question', js: true do 
     login(question.user)
     click_on 'Delete question'
 

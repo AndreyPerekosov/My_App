@@ -1,0 +1,10 @@
+$('.answer-messages').html('');
+<% if @question.errors.present? %>
+  <% @question.errors.full_messages.each do |message| %>
+    $('.question-messages').append('<p> <%= j message %> </p>');
+  <% end %>
+<% else %>
+  $('.edit-form').replaceWith('<%= j render @question %>');
+  $('.question-messages').append('<p><%= flash.now[:notice] = 'Your question successfully updated' %></p>');
+  $('.question-messages').append('<%= link_to 'Back', questions_path %>');
+<% end %>

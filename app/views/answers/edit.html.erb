@@ -1,6 +1,9 @@
-<h1>Edit answer</h1>
-<%= form_for @answer do |f|%>
-  <%= f.label :body, 'Answer' %>
-  <%= f.text_field :body %>
-  <%= f.submit 'Edit' %>
-<% end %>
+<div class="answer-messages"></div>
+<div class="edit-form">
+  <h1>Edit answer</h1>
+  <%= form_for @answer, remote: true do |f|%>
+    <%= f.label :body, 'Answer' %>
+    <%= f.text_field :body %>
+    <%= f.submit 'Edit' %>
+  <% end %>
+</div>

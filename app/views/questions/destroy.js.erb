@@ -1,0 +1,3 @@
+$('.question-messages').html('');
+$('#question_' + '<%= @question.id %>').remove();
+$('.question-messages').append('<p><%= flash.now[:notice] = "Your question delete!" %></p>');
