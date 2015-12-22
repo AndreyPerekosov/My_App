@@ -1,0 +1,7 @@
+= div_for question do
+  p
+    = question.title
+    = question.body
+    - if current_user && current_user.owner_of?(question)
+      = link_to 'Delete question', question, remote: true, method: :delete
+      = link_to 'Edit question', edit_question_path(question)
