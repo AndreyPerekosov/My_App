@@ -13,24 +13,26 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(answer_params)
     @answer.user = current_user
-    flash.now[:notice] = 'Your answer successfully created'  if @answer.save 
-       #redirect_to @question, 
-    # else
-    #   render :new
-    # end
+    #respond in few different formats
+    respond_to do |format|
+      if @answer.save
+        format.html {redirect_to @question, notice: 'Your answer successfully created'} #respond in html format (for client, that does not support javascript for example)
+        format.js #respond in js  
+        format.json { render json: @answer } #respond in json format. In this respond we transer @answer for parcing it in js-script(on client side)
+      else
+        format.html {render 'questions/show'}
+        format.js
+        format.json { render json: @answer.errors.full_messages, status: :unprocessable_entity } #transfer errors whith status
+      end   
+    end
   end
 
   def update
     @answer.update(answer_params) if @answer.save
-      #redirect_to @answer.question, notice: 'Your answer successfully updated'
-    # else
-    #   render :edit
-    # end
   end
 
   def destroy
     @answer.destroy
-    #redirect_to @answer.question, notice: 'Your answer delete!'
   end
 
 

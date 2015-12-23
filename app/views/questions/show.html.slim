@@ -6,7 +6,10 @@ h3 Answers
 - if current_user
   h1 New answer
   .answer-messages
-  = form_for [@question, Answer.new], remote: true do |f|
+  /Underline we require ajax-respond in json format
+  = form_for [@question, Answer.new], remote: true, format: :json do |f| 
     = f.label :body, 'Answer'
     = f.text_field :body
     = f.submit 'Create'
+
+    
