@@ -28,7 +28,17 @@ class AnswersController < ApplicationController
   end
 
   def update
-    @answer.update(answer_params) if @answer.save
+    respond_to do |format|
+      if @answer.update(answer_params)
+        format.html {redirect_to @question, notice: 'Your answer successfully update'}
+        format.js 
+        format.json { render json: @answer }
+      else
+        format.html {render 'edit'}
+        format.js
+        format.json { render json: @answer.errors.full_messages, status: :unprocessable_entity } #transfer errors whith status
+      end
+    end   
   end
 
   def destroy

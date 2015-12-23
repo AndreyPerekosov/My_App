@@ -27,11 +27,17 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.update(question_params)
-    #   redirect_to @question, notice: 'Your question successfully updated'
-    # else
-    #   render :edit
-    # end
+    respond_to do |format|
+      if @question.update(question_params)
+        format.html { redirect_to questions_path, notice: 'Your question successfully update' }
+        format.js
+        format.json { render json: @question }
+      else
+        format.html {render :edit}
+        format.js
+        format.json { render json: @question.errors.full_messages, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

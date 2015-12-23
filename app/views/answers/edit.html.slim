@@ -1,7 +1,7 @@
 .answer-messages
 .edit-form
   h1 Edit answer
-  = form_for @answer, remote: true do |f|
+  = form_for @answer, remote: true, format: :json do |f|
     = f.label :body, 'Answer'
     = f.text_field :body
     = f.submit 'Edit'
