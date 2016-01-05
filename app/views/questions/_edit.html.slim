@@ -1,0 +1,7 @@
+.edit-form
+  = form_for question, remote: true, format: :json, html: {style: "display: none"}  do |f|
+    = f.label :title
+    = f.text_field :title
+    = f.label :body, 'Text'
+    = f.text_field :body
+    = f.submit 'Edit'

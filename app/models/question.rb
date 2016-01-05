@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
 
   validates :title, length: { maximum: 200 }
-  validates :body, presence: true
+  validates :body, :title, presence: true
   validates :title, uniqueness: true
   validates :user_id, presence: true
   

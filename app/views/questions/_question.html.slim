@@ -4,4 +4,5 @@
     = question.body
     - if current_user && current_user.owner_of?(question)
       = link_to 'Delete question', question, remote: true, method: :delete
-      = link_to 'Edit question', edit_question_path(question)
+      = link_to 'Edit question', '#', class: 'edit_question_link', data: { question_id: question.id }  
+p = render 'edit', question: question
